@@ -2,16 +2,6 @@
 
 A simple and intuitive note-taking application that allows users to create, update, delete, and organize their notes effectively. This application supports drag-and-drop functionality for reordering notes, deadline management, and a responsive design.
 
-## Table of Contents
-
-- [Features](#features)
-- [Technologies Used](#technologies-used)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Deadline Management](#deadline-management)
-- [Toast Notifications](#toast-notifications)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Features
 
