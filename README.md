@@ -1,6 +1,6 @@
 # Note App
 
-A simple and intuitive note-taking application that allows users to create, update, delete, and organize their notes effectively. This application supports drag-and-drop functionality for reordering notes, deadline management, and a responsive design.
+A simple note-taking application that allows users to create, update, delete, and organize their notes effectively. This application supports drag-and-drop functionality for reordering notes, deadline management, and a responsive design.
 
 
 ## Features
