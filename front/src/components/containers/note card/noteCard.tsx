@@ -43,8 +43,8 @@ const NoteCard: React.FC<NoteCardProps> = ({
     accept: "note",
     hover: (item: { index: number }) => {
       if (item.index !== index) {
-        moveCard(item.index, index); // Call moveCard when hovering
-        item.index = index; // Update the index to the new position
+        moveCard(item.index, index); 
+        item.index = index; 
       }
     },
   });
@@ -62,7 +62,8 @@ const NoteCard: React.FC<NoteCardProps> = ({
     ? moment(deadlineDate).format("jD jMMMM jYYYY")
     : "";
 
-  const formattedDeadlineTime = deadlineTime ? deadlineTime : "";
+  const formattedDeadlineTime = deadlineTime ? moment(createdAt).format(
+    " HH:mm") : "";
 
   // Check if the deadline has been reached
   const currentDateTime = moment();
@@ -76,7 +77,7 @@ const NoteCard: React.FC<NoteCardProps> = ({
 
   return (
     <div
-      ref={(node) => drag(drop(node))} // Combine drag and drop refs
+      ref={(node) => drag(drop(node))} 
       className="relative w-60 aspect-square"
       style={{ opacity: isDragging ? 0.5 : 1 }}
       onClick={() => {
@@ -90,7 +91,6 @@ const NoteCard: React.FC<NoteCardProps> = ({
             deadlineTime,
           })
         );
-        dispatch(startEditing()); // Ensure that we start editing when clicking
       }} // Dispatch selectNote on click
     >
       {isDeadlineReached && (
@@ -101,7 +101,6 @@ const NoteCard: React.FC<NoteCardProps> = ({
           isDeadlineReached && "bg-slate-100 animate-pulse duration-[3000]"
         }`}
       >
-        {/* Display the formatted createdAt or updatedAt date */}
         <CardDescription className="text-xs font-extralight mb-2">
           {updatedAt
             ? `ویرایش شده در ${formattedUpdatedAt}`

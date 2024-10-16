@@ -19,6 +19,8 @@ import {
 
 
 export function Form() {
+
+
   const dispatch = useDispatch();
   // Here we can have Access to the deadline state
   const { date: deadlineDate, time: deadlineTime } = useSelector(
@@ -29,7 +31,7 @@ export function Form() {
   ); // Here we can have Access to the editting and viewing state
   const [content, setContent] = useState("");
   const { toast } = useToast(); // Use custom toast hook
-
+  console.log(isViewing);
   useEffect(() => {
     if (selectedNote) {
       setContent(selectedNote.content); // Populate the content when a note is selected
@@ -161,7 +163,7 @@ export function Form() {
           </CardTitle>
         </CardHeader>
 
-        {isViewing && (
+        {isViewing && !isEditing && (
           <div className="w-full flex justify-end px-6 py-2">
             <Button onClick={() => dispatch(startEditing())}>
               <FilePenLine size={16} />
@@ -183,9 +185,11 @@ export function Form() {
             />
             {/* Show DateAndTimePicker when creating or editing a note */}
             {isEditing || !isViewing ? <DateAndTimePicker /> : null}
-            <Button type="submit" className="w-full self-end my-4">
-              {isEditing ? "ذخیره" : "افزودن"}
-            </Button>
+            {!isViewing && (
+              <Button type="submit" className="w-full self-end my-4">
+                {isEditing && "ذخیره"}
+              </Button>
+            )}
             {isViewing && (
               <Button
                 type="button" // Change to button type
