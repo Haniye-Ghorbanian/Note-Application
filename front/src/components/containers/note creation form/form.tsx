@@ -71,12 +71,12 @@ export function Form() {
 
       const updatedNote = await response.json();
       dispatch(updateSelectedNote(updatedNote)); // Update the selected note in Redux
-      toast({ title: "حله!", description: "یادداشت با موفقیت ایجاد شد" });
+      toast({ title: "حله!", description: "یادداشت با موفقیت ویرایش شد" });
     } catch (error) {
       console.error("Error updating note:", error);
       toast({
         title: "مشکلی پیش آمده :(",
-        description: "به دلیل بروز خطا یادداشت ایجاد نشد",
+        description: "به دلیل بروز خطا یادداشت ویرایش نشد",
       });
     }
   };
